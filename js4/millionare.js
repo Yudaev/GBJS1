@@ -35,7 +35,7 @@ function getQue(arr) {
 
     return arr[random];
 }
-
+//1
 function startMil() {
     queNum = 0;
     do{
