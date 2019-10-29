@@ -6,7 +6,7 @@ function questionMechanicMil(obj) {
     let answer = obj.answer;
     do {
         ok = false;
-        event = +prompt(obj.question + obj.v1 + obj.v2 + obj.v3 + obj.v4 + '-1 - Выход из игры');
+        event = +prompt(obj.question + '1 - ' + obj.v1 + '2 - ' + obj.v2 + '3 - ' + obj.v3 + '4 - ' + obj.v4 + '-1 - Выход из игры');
         if (event == -1 || event == 0) {
             return false;
         }
