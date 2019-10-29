@@ -41,8 +41,15 @@ function getQue(arr) {
     return arr[random];
 }
 
+function falseUsed(arr) {
+    for (let i = 0; i < (arr.length - 1); i++){
+        arr[i].used = false;
+    }
+}
+
 function startMil() {
     queNum = 0;
+    document.getElementsByClassName("level")[0].innerHTML = queNum;
     do{
         if (queNum < 5) checkQue = questionMechanicMil(getQue(easyQue));
         if (queNum >= 5 && queNum < 10) checkQue = questionMechanicMil(getQue(mediumQue));
@@ -55,4 +62,7 @@ function startMil() {
     if (queNum >= 5 && queNum < 15) document.getElementsByClassName("txt2")[0].innerHTML = "вопросов";
     if (queNum == 15) document.getElementsByClassName("txt2")[0].innerHTML = "вопросов и победили!";
 
+    falseUsed(easyQue);
+    falseUsed(mediumQue);
+    falseUsed(hardQue);
 }
