@@ -88,14 +88,14 @@ function startGame() {
 
 function checkStep() {
     let step = document.getElementsByClassName("step")[0].value
-        tap = 0;
     steps += '<hr><p>Вопрос на шаге ' + step + ': ' + log[step-1].question + '</p>' +
              '<p>Ответ на шаге ' + step + ': ' + log[step-1].answer + '</p>';
     document.getElementsByClassName("steps")[0].innerHTML = steps;
-    if (step > 0 && tap == 0) {
-        document.getElementsByClassName("gameButton")[0].innerHTML += '<button onclick="clearSteps()">Очистить шаги</button>'
+    if (step > 0) {
+        document.getElementsByClassName("gameButton")[0].innerHTML = '<button onclick="startGame()">Играть</button>' +
+                                                                                 '<button onclick="clearSteps()">Очистить шаги</button>'
     }
-    tap++;
+
 }
 
 function clearSteps(){
