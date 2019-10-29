@@ -1,7 +1,5 @@
 var event, ok, log = [], steps;
 
-console.log(works.a00);
-
 function questionMechanic(question, qAmount, answ1, answ2) {
      let que = {};
      do {

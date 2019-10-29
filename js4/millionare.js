@@ -32,10 +32,15 @@ function questionMechanicMil(obj) {
 
 function getQue(arr) {
     let random = parseInt(Math.random()*(arr.length-1))
-
+    if (!arr[random].used) {
+        arr[random].used = true;
+        return arr[random];
+    } else {
+        getQue(arr);
+    }
     return arr[random];
 }
-//1
+
 function startMil() {
     queNum = 0;
     do{
@@ -49,4 +54,5 @@ function startMil() {
     if (queNum > 1 && queNum < 5) document.getElementsByClassName("txt2")[0].innerHTML = "вопроса";
     if (queNum >= 5 && queNum < 15) document.getElementsByClassName("txt2")[0].innerHTML = "вопросов";
     if (queNum == 15) document.getElementsByClassName("txt2")[0].innerHTML = "вопросов и победили!";
+
 }
