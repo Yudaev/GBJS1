@@ -11,7 +11,7 @@ let img = [
         small: 'http://oach.ru/gallary/small2.jpg'
     },
     {
-        big: '',
+        big: 'http://oach.ru/gallary/big3.jpg',
         small: 'http://oach.ru/gallary/small3.jpg'
     }
 ];
@@ -30,7 +30,7 @@ function chooseFigure() {
 
     this.classList.toggle('selected');
         if(this.classList.contains('selected') && img[this.id].big !== ''){
-            fullImg.innerHTML = '<img src="'+img[this.id].big+'">';
+            fullImg.innerHTML = '<img src="'+img[this.id].big+'"  onerror="f()">';
         }else if (this.classList.contains('selected') && img[this.id].big === ''){
             fullImg.innerHTML = 'Файл отсутствует';
         }else{
@@ -41,11 +41,17 @@ function chooseFigure() {
 
 function removeAllClasses(baseClassName,classNameForRemove, id){
     let elements = document.querySelectorAll('.'+baseClassName);
-    //console.log(elements);
     for (let i = 0; i < elements.length; i++) {
         if (id == i) continue;
         elements[i].classList.remove(classNameForRemove);
     }
+}
+
+function f(){
+    let img = document.getElementsByClassName('fullImg')[0].getElementsByTagName('img')[0];
+    console.log(img);
+    img.onerror = null;
+    img.src = 'https://img.pngio.com/error-404-page-was-not-found-news-http-htm-error-404-png-free-htm-png-820_420.png';
 }
 
 
