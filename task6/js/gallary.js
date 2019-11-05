@@ -14,7 +14,8 @@ let img = [
         big: 'http://oach.ru/gallary/big3.jpg',
         small: 'http://oach.ru/gallary/small3.jpg'
     }
-];
+],
+    choosenElement;
 
 let fullImg = document.getElementsByClassName('fullImg')[0],
     miniImg = document.getElementsByClassName('miniImg')[0];
@@ -47,7 +48,8 @@ function drawGallary() {
 function chooseFigure() {
     this.classList.toggle('selected');
         if(this.classList.contains('selected')){
-            fullImg.innerHTML = '<img src="'+img[this.id].big+'"  onerror="f()">';
+            choosenElement = this.id;
+            fullImg.innerHTML = '<img src="'+img[this.id].big+'"  onerror="er()">';
         }else{
             fullImg.innerHTML = 'Изображение не выбрано'
         }
@@ -62,17 +64,33 @@ function removeAllClasses(baseClassName,classNameForRemove, id){
     }
 }
 
-function f(){
+function er(){
     document.getElementsByClassName('fullImg')[0].getElementsByTagName('img')[0].remove();
     fullImg.innerHTML = 'Изображение отсутствует в БД'
 }
 
 function leftChoose() {
-    
+    findSelected = document.getElementsByClassName('selected');
+    if(findSelected.length <= 0 || choosenElement == 0) {
+        choosenElement = img.length - 1;
+    }else{
+        console.log(findSelected);
+        --choosenElement;
+        console.log(choosenElement);
+    }
+    document.getElementById(choosenElement).click();
 }
 
 function rightChoose() {
-    
+    findSelected = document.getElementsByClassName('selected');
+    if(findSelected.length <= 0 || choosenElement == img.length - 1) {
+        choosenElement = 0;
+    }else{
+        console.log(findSelected);
+        ++choosenElement;
+        console.log(choosenElement);
+    }
+    document.getElementById(choosenElement).click();
 }
 
 drawGallary();
