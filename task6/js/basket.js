@@ -32,13 +32,11 @@ let goods = [
         url: 'https://market.yandex.ru/product--smartfon-apple-iphone-xs-max-256gb/175941400'
     }
 ],
-    basket = [];
+    basket = [],
+    goodsBlock = document.getElementsByClassName('goods')[0];
 
-//document.getElementsByClassName('goods')[0].innerHTML = '<img src="img/basket/'+goods[0].img+'" alt="">\n';
-let goodsBlock = document.getElementsByClassName('goods')[0];
 for (let i = 0; i < goods.length; i++){
     let good = document.createElement('div');
-    //good.setAttribute('id', i);
     good.setAttribute('class', 'good');
     good.innerHTML = '<h3>'+goods[i].name+'</h3>';
     good.innerHTML += '<img src="img/basket/'+goods[i].img+'">';
@@ -85,15 +83,15 @@ function drawBasket() {
                                 '</tr>' +
                             '</table>';
 
-    let basketTable = document.getElementsByClassName('basketTable')[0];
-    let fullOrderPrice = 0;
+    let basketTable = document.getElementsByClassName('basketTable')[0],
+        fullOrderPrice = 0;
 
     for(let i = 0; i < basket.length+1; i++){
-        let rowOrder = document.createElement('tr');
-        let tdName = document.createElement('td');
-        let tdPrice = document.createElement('td');
-        let tdHowMuch = document.createElement('td');
-        let tdSumPrice = document.createElement('td');
+        let rowOrder = document.createElement('tr'),
+            tdName = document.createElement('td'),
+            tdPrice = document.createElement('td'),
+            tdHowMuch = document.createElement('td')
+        tdSumPrice = document.createElement('td');
 
         if (i < basket.length) {
             tdName.innerText = goods[basket[i].id].name;
@@ -113,14 +111,6 @@ function drawBasket() {
         rowOrder.appendChild(tdHowMuch);
         rowOrder.appendChild(tdSumPrice);
         basketTable.appendChild(rowOrder);
-
-        // basketBlock.innerHTML += '<tr>';
-        // basketBlock.innerHTML += '<td>'+goods[basket[i].id].name+'</td>';
-        // basketBlock.innerHTML += '<td>'+goods[basket[i].id].price+'</td>';
-        // basketBlock.innerHTML += '<td>'+basket[i].count+'</td>';
-        // basketBlock.innerHTML += '<td>'+ (basket[i].count * goods[basket[i].id].price) +'</td>';
-        // basketBlock.innerHTML += '</tr>';
     }
-    //basketBlock.innerHTML += '</table>';
     console.log(basketBlock);
 }
