@@ -29,10 +29,8 @@ function drawGallary() {
 function chooseFigure() {
 
     this.classList.toggle('selected');
-        if(this.classList.contains('selected') && img[this.id].big !== ''){
+        if(this.classList.contains('selected')){
             fullImg.innerHTML = '<img src="'+img[this.id].big+'"  onerror="f()">';
-        }else if (this.classList.contains('selected') && img[this.id].big === ''){
-            fullImg.innerHTML = 'Файл отсутствует';
         }else{
             fullImg.innerHTML = 'Изображение не выбрано'
         }
@@ -48,10 +46,8 @@ function removeAllClasses(baseClassName,classNameForRemove, id){
 }
 
 function f(){
-    let img = document.getElementsByClassName('fullImg')[0].getElementsByTagName('img')[0];
-    console.log(img);
-    img.onerror = null;
-    img.src = 'https://img.pngio.com/error-404-page-was-not-found-news-http-htm-error-404-png-free-htm-png-820_420.png';
+    document.getElementsByClassName('fullImg')[0].getElementsByTagName('img')[0].remove();
+    fullImg.innerHTML = 'Изображение отсутствует в БД'
 }
 
 
