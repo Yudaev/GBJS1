@@ -16,18 +16,35 @@ let img = [
     }
 ];
 
-let fullImg = document.getElementsByClassName('fullImg')[0];
+let fullImg = document.getElementsByClassName('fullImg')[0],
+    miniImg = document.getElementsByClassName('miniImg')[0];
 fullImg.innerHTML = 'Изображение не выбрано';
 
 function drawGallary() {
-    let miniImg = document.querySelectorAll('.small');
-    for (let i = 0; i < miniImg.length; i++) {
-        miniImg[i].addEventListener('click', chooseFigure);
+    let leftArrow = document.createElement('a'),
+        rightArrow = document.createElement('a');
+    leftArrow.setAttribute('href','#');
+    rightArrow.setAttribute('href','#');
+    leftArrow.innerText = '<';
+    rightArrow.innerText = '>';
+
+    miniImg.appendChild(leftArrow);
+    leftArrow.addEventListener('click', leftChoose);
+    for (let i = 0; i < img.length; i++) {
+        let smallImg = document.createElement('img');
+        smallImg.setAttribute('src',img[i].small);
+        smallImg.setAttribute('id',i);
+        smallImg.setAttribute('width','200');
+        smallImg.setAttribute('class','small');
+        miniImg.appendChild(smallImg);
+        smallImg.addEventListener('click', chooseFigure);
     }
+    miniImg.appendChild(rightArrow);
+    rightArrow.addEventListener('click', rightChoose);
+
 }
 
 function chooseFigure() {
-
     this.classList.toggle('selected');
         if(this.classList.contains('selected')){
             fullImg.innerHTML = '<img src="'+img[this.id].big+'"  onerror="f()">';
@@ -50,6 +67,13 @@ function f(){
     fullImg.innerHTML = 'Изображение отсутствует в БД'
 }
 
+function leftChoose() {
+    
+}
+
+function rightChoose() {
+    
+}
 
 drawGallary();
 

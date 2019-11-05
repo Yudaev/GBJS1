@@ -37,3 +37,10 @@
 .small {
     cursor: pointer;
 }
+
+.miniImg a{
+    text-decoration: none;
+    color: deepskyblue;
+    font-size: 80px;
+    font-weight: bold;
+}

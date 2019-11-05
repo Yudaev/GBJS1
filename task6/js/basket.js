@@ -90,8 +90,8 @@ function drawBasket() {
         let rowOrder = document.createElement('tr'),
             tdName = document.createElement('td'),
             tdPrice = document.createElement('td'),
-            tdHowMuch = document.createElement('td')
-        tdSumPrice = document.createElement('td');
+            tdHowMuch = document.createElement('td'),
+            tdSumPrice = document.createElement('td');
 
         if (i < basket.length) {
             tdName.innerText = goods[basket[i].id].name;
