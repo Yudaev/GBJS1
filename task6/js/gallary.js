@@ -74,9 +74,7 @@ function leftChoose() {
     if(findSelected.length <= 0 || choosenElement == 0) {
         choosenElement = img.length - 1;
     }else{
-        console.log(findSelected);
         --choosenElement;
-        console.log(choosenElement);
     }
     document.getElementById(choosenElement).click();
 }
@@ -86,9 +84,7 @@ function rightChoose() {
     if(findSelected.length <= 0 || choosenElement == img.length - 1) {
         choosenElement = 0;
     }else{
-        console.log(findSelected);
         ++choosenElement;
-        console.log(choosenElement);
     }
     document.getElementById(choosenElement).click();
 }
