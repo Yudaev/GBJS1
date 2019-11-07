@@ -26,6 +26,9 @@ td.game-table-cell{
 .food-unit{
     background-color: red;
 }
+.barier{
+    background-color: orange;
+}
 .buttons{
     display: inline-block;
 }
